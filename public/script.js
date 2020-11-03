@@ -41,7 +41,7 @@ navigator.mediaDevices.getUserMedia({
     })
 
     socket.on('createMessage', message => {
-        $('.messages').append(`<li class="message"><b>User</b><br/>${message}</li>`);
+        $('.messages').append(`<li class="message"><b>USER</b><br/>${message}</li>`);
         scrollToBottom();
     })
 
@@ -74,10 +74,10 @@ const scrollToBottom = () => {
 
 const muteUnMute = () => {
     const enabled = myVideoStream.getAudioTracks()[0].enabled;
-    if(enabled){
+    if (enabled) {
         myVideoStream.getAudioTracks()[0].enabled = false;
         setUnmuteButton();
-    }else{
+    } else {
         setMuteButton();
         myVideoStream.getAudioTracks()[0].enabled = true;
     }
@@ -100,10 +100,10 @@ const setUnmuteButton = () => {
 //stop el video
 const playStop = () => {
     let enabled = myVideoStream.getVideoTracks()[0].enabled;
-    if(enabled){
+    if (enabled) {
         myVideoStream.getVideoTracks()[0].enabled = false;
         setPlayVideo();
-    }else{
+    } else {
         setStopVideo();
         myVideoStream.getVideoTracks()[0].enabled = true;
     }
@@ -122,4 +122,3 @@ const setStopVideo = () => {
     <span class="text-danger">Stop video</span>`;
     document.querySelector('.main__video__button').innerHTML = html;
 }
-

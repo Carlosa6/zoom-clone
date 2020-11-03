@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Home</title>
     <!-- CDN CSS FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <title>Welcome | Home</title>
 </head>
 
 <body>
@@ -16,20 +16,24 @@
     <div class="card">
         <div class="card-body col-md-6 offset-md-3">
             <h3 class="text-center my-3 text-info">Crea o únete a una sala</h3>
-            <form acion="" method="POST">
+            <form acion="/" method="POST">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Username" name="username">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Room Name" name="sala">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary mx-2" id="create">Crear sala</button>
-                    <button class="btn btn-warning mx-2" id="unirse">Unirse a la sala</button>
+                    <input type="hidden" name="idboton" id="idboton">
+                    <button class="btn btn-primary mx-2" id="create" onclick="mostrarId('crear')">Crear sala</button>
+                    <button class="btn btn-warning mx-2" id="unirse" onclick="mostrarId('unir')">Unirse a la sala</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        function mostrarId(name) {
+            document.querySelector('#idboton').value = name;
+        }
+    </script>
 
 </body>
 

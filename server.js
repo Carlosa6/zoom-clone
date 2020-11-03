@@ -1,16 +1,28 @@
+const { create } = require('domain');
 const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const { v4: uuidv4 } = require('uuid');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('inicio');
-    // res.redirect(`/${uuidv4()}`);
+    // res.render('inicio');
+    res.redirect(`/${uuidv4()}`)
 });
+
+
+// app.post('/', (req, res) => {
+//     let userInfo = {}
+//     userInfo.username = req.body.username
+//     userInfo.boton = req.body.idboton
+//     res.redirect(`/${uuidv4()}`, { userInfo });
+// })
 
 app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room })
